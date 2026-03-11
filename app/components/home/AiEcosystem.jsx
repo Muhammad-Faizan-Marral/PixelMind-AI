@@ -8,44 +8,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 const AiEcosystem = () => {
-  const tools = [
-    {
-      icons: <ImagePlus />,
-      heading: "Image Analyzer",
-      paragraph:
-        "Extract hidden metadata, identify lighting conditions, and understand composition with deep neural analysis.",
-      color: "#6c63ff",
-      arrow: <ArrowRight />,
-      url: "/imageanlyzer",
-    },
-    {
-      icons: <WandSparkles />,
-      heading: "AI Image Generator",
-      paragraph:
-        "Turn simple text descriptions into high-fidelity photorealistic images or stylized digital art instantly.",
-      color: "#00d4ff",
-      arrow: <ArrowRight />,
-      url: "/aiimagegenerator",
-    },
-    {
-      icons: <Smile />,
-      heading: "Emotion Detector",
-      paragraph:
-        "Advanced facial recognition that identifies human sentiments and micro-expressions across 12 distinct categories.",
-      color: "#6c63ff",
-      arrow: <ArrowRight />,
-      url: "/emotiondetector",
-    },
-    {
-      icons: <PanelsTopLeft />,
-      heading: "Object Detection",
-      paragraph:
-        "Real-time object classification and spatial mapping. Label thousands of unique object classes with 99.9% accuracy.",
-      color: "#00d4ff",
-      arrow: <ArrowRight />,
-      url: "/objectdetection",
-    },
-  ];
+
   return (
     <div className="bg-surface-primary p-12">
       <div className="flex items-start justify-center flex-col max-w-[44rem]  ">
@@ -74,10 +37,10 @@ const AiEcosystem = () => {
             understand composition with deep neural analysis.
           </p>
           <Link
-            className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
+            className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all font-display"
             ease-in-out
             duration-700
-            font-display
+            
             href="/imageanlyzer"
           >
             Try Now{" "}
@@ -102,7 +65,7 @@ const AiEcosystem = () => {
           </p>
           <Link
             className="inline-flex items-center gap-2 text-secondary font-bold hover:gap-4 transition-all ease-in-out duration-700 font-display"
-            href="/aiimagegenerator"
+            href="/ai-image-generator"
           >
             Try Now{" "}
             <span className="material-symbols-outlined">
@@ -125,11 +88,10 @@ const AiEcosystem = () => {
             micro-expressions across 12 distinct categories.
           </p>
           <Link
-            className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all"
+            className="inline-flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all font-display"
             ease-in-out
             duration-700
-            font-display
-            href="/emotiondetector"
+            href="/emotion-detector"
           >
             Try Now{" "}
             <span className="material-symbols-outlined">
@@ -153,7 +115,7 @@ const AiEcosystem = () => {
           </p>
           <a
             className="inline-flex items-center gap-2 text-secondary font-bold hover:gap-4 transition-all ease-in-out duration-700 font-display"
-            href="/objectdetection"
+            href="/object-detection"
           >
             Try Now{" "}
             <span className="material-symbols-outlined">

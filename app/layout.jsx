@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -20,16 +20,14 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "PixelMind AI",
   description: "PixelMind AI Application",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className="dark">
       <body

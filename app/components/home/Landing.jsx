@@ -15,8 +15,8 @@ const Landing = () => {
         </div>
 
         {/* Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-8">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-purple-500 bg-[length:200%_auto] animate-[gradient_6s_linear_infinite]">
+        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-8">
+          <span className="font-display bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-purple-500 bg-[length:200%_auto] animate-[gradient_6s_linear_infinite]">
             Transform Images
           </span>
           <br />
@@ -24,7 +24,7 @@ const Landing = () => {
         </h1>
 
         {/* Description */}
-        <p className="max-w-2xl mx-auto text-lg text-gray-400 mb-12 leading-relaxed">
+        <p className="font-mono max-w-2xl mx-auto text-lg text-gray-400 mb-12 leading-relaxed">
           Unlock the potential of your visuals with our suite of advanced AI
           tools. Analyze, generate, and detect with professional-grade
           precision in seconds.
