@@ -1,4 +1,4 @@
-export async function cloudinary(file) {
+export async function cloudinaryService(file) {
   const formData = new FormData();
   formData.append("file", file);
 
@@ -6,8 +6,7 @@ export async function cloudinary(file) {
     method: "POST",
     body: formData,
   });
-  const data =  await res.json();
-  console.log(data)
-  return data
-
+  const data = await res.json();
+  console.log("service output is ", data);
+  return data;
 }

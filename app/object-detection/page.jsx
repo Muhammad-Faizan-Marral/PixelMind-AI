@@ -1,5 +1,7 @@
+
 import Header from "../components/Header";
 import Main from "../components/object-detection/Main";
+
 
 const page = () => {
   return (
@@ -11,6 +13,7 @@ const page = () => {
         }
       />
       <Main />
+     
     </div>
   );
 };
