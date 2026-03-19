@@ -1,4 +1,4 @@
-// api/analyze/route.js
+
 import { NextResponse } from "next/server";
 
 const IMAGGA_API_KEY = process.env.IMAGGA_API_KEY;
@@ -14,7 +14,6 @@ export async function POST(request) {
       return NextResponse.json({ error: "Image URL is required" }, { status: 400 });
     }
 
-    // Debug: check env vars are loaded
     if (!IMAGGA_API_KEY || !IMAGGA_API_SECRET) {
       console.error("Missing Imagga credentials:", { IMAGGA_API_KEY, IMAGGA_API_SECRET });
       return NextResponse.json({ error: "Server misconfiguration: missing API credentials" }, { status: 500 });
@@ -22,7 +21,6 @@ export async function POST(request) {
 
     const auth = Buffer.from(`${IMAGGA_API_KEY}:${IMAGGA_API_SECRET}`).toString("base64");
 
-    // Fix: added /v2/ in the path
     const url = `${IMAGGA_BASE_URL}/v2/tags?image_url=${encodeURIComponent(imageUrl)}`;
     console.log("Calling Imagga URL:", url);
 

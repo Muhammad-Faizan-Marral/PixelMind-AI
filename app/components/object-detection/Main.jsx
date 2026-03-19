@@ -10,7 +10,10 @@ const Page = () => {
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [imgNaturalSize, setImgNaturalSize] = useState({ width: 0, height: 0 });
-  const [imgRenderedSize, setImgRenderedSize] = useState({ width: 0, height: 0 });
+  const [imgRenderedSize, setImgRenderedSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const imgRef = useRef(null);
 
@@ -157,7 +160,6 @@ const Page = () => {
               {loading ? "Detecting..." : "Upload & Detect"}
             </button>
 
-          
             <div className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4">
               <h2 className="text-lg font-semibold mb-3">Detected Objects</h2>
 
@@ -178,8 +180,10 @@ const Page = () => {
                         Confidence: {(item.confidence_score * 100).toFixed(1)}%
                       </p>
                       <p className="text-sm text-white/60 break-all">
-                        Region: ({item.region.top_left_x}, {item.region.top_left_y}) → (
-                        {item.region.bottom_right_x}, {item.region.bottom_right_y})
+                        Region: ({item.region.top_left_x},{" "}
+                        {item.region.top_left_y}) → (
+                        {item.region.bottom_right_x},{" "}
+                        {item.region.bottom_right_y})
                       </p>
                     </div>
                   ))}
@@ -236,20 +240,19 @@ const Page = () => {
                 <div className="mt-3 text-sm text-white/60">
                   {imgNaturalSize.width > 0 && (
                     <p>
-                      Original Size: {imgNaturalSize.width} × {imgNaturalSize.height}
+                      Original Size: {imgNaturalSize.width} ×{" "}
+                      {imgNaturalSize.height}
                     </p>
                   )}
                 </div>
               </div>
             ) : (
               <div className="flex min-h-[350px] items-center justify-center rounded-xl border border-dashed border-white/10 bg-white/5 text-white/40">
-                Image preview 
+                Image preview
               </div>
             )}
           </div>
         </div>
-
-       
       </div>
     </div>
   );

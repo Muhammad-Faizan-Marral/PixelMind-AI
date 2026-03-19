@@ -1,6 +1,8 @@
 
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./components/home/Header";
+import Footer from "./components/home/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -33,7 +35,10 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <Header/>
         {children}
+           <Footer/>
+          
       </body>
     </html>
   );

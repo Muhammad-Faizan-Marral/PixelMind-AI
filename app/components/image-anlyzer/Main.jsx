@@ -1,11 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Upload, Zap, X, CheckCircle2 } from "lucide-react";
+import { Upload, Zap, X} from "lucide-react";
 import { cloudinaryService } from "../../service/cloudinaryService";
 import ImageLoading from "../ImageLoading";
 import Analytics from "./Analytics";
 import toast, { Toaster } from "react-hot-toast";
-import { analyzeImage } from "../../service/googleVision";
 import { imageAnalyze } from "../../service/imageAnalyze";
 
 const Main = () => {
@@ -13,7 +12,7 @@ const Main = () => {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [AnalysisData, setAnalysisData] = useState();
-
+ console.log(previewUrl)
   useEffect(() => {
     if (!file) {
       setPreviewUrl(null);
@@ -25,29 +24,25 @@ const Main = () => {
     return () => URL.revokeObjectURL(url);
   }, [file]);
 
+
+
   const handleUpload = async () => {
     if (!file) return;
-
     try {
       setIsLoading(true);
       const data = await cloudinaryService(file);
-      console.log(data.imageUrl);
       if (!data?.imageUrl) {
         toast.error("Upload failed. Try again!");
         return;
       } else {
         const payload = { imageUrl: data.imageUrl };
-        console.log(typeof payload);
-        console.log("Payload result is : " + payload);
         const serviceData = await imageAnalyze(payload);
-        console.log("main data", serviceData);
         if (serviceData) {
           setAnalysisData(serviceData);
           toast.success("AI Analysis Complete!");
         }
       }
     } catch (error) {
-      console.log(error);
       toast.error(error.message || "Something went wrong");
     } finally {
       setIsLoading(false);
@@ -60,15 +55,15 @@ const Main = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mt-12 px-6 max-w-7xl mx-auto w-full mb-20">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mt-12 px-6 max-w-7xl mx-auto w-full mb-20 ">
       <Toaster position="top-center" />
 
       {/* Upload Section */}
-      <div className="w-full max-w-[38rem]">
+      <div className="w-full max-w-152">
         {file ? (
           <div className="relative group overflow-hidden rounded-3xl border border-primary/20 bg-surface-primary shadow-2xl transition-all duration-500">
             {/* Image Container */}
-            <div className="relative h-[25rem] lg:h-[32rem] w-full overflow-hidden">
+            <div className="relative h-100 lg:h-128 w-full overflow-hidden">
               {isLoading ? (
                 <div className="absolute inset-0 z-20 bg-black/40 backdrop-blur-md flex items-center justify-center">
                   <ImageLoading />
@@ -116,7 +111,7 @@ const Main = () => {
           </div>
         ) : (
           /* Dropzone */
-          <label className="group relative flex flex-col items-center justify-center w-full min-h-[30rem] border-2 border-dashed border-primary/20 hover:border-primary/60 transition-all duration-500 rounded-3xl bg-surface-primary/50 cursor-pointer backdrop-blur-sm shadow-inner">
+          <label className="group relative flex flex-col items-center justify-center w-full min-h-120 border-2 border-dashed border-primary/20 hover:border-primary/60 transition-all duration-500 rounded-3xl bg-surface-primary/50 cursor-pointer backdrop-blur-sm shadow-inner">
             <input
               type="file"
               className="hidden"
@@ -143,11 +138,11 @@ const Main = () => {
       </div>
 
       {/* Analytics Section */}
-      <div className="w-full lg:sticky lg:top-8 max-w-[32rem] ">
+      <div className="w-full lg:sticky lg:top-8 max-w-lg ">
         <div className="rounded-3xl overflow-hidden border border-text-secondary/10 shadow-2xl bg-surface-primary">
           <Analytics AnalysisData={AnalysisData} isLoading={isLoading} />
         </div>
-      </div> 
+      </div>
     </div>
   );
 };

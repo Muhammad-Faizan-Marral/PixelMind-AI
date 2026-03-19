@@ -7,11 +7,11 @@ import PixelMindWork from "../app/components/home/PixelMindWork";
 const page = () => {
   return (
     <div className="">
-        <Header />
+       
         <Landing/>
         <AiEcosystem/>
         <PixelMindWork/>
-        <Footer/>
+    
     </div>
   );
 };
